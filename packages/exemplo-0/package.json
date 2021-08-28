@@ -5,6 +5,11 @@
   "author": "Douglas Moura <douglas.ademoura@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "parcel public/index.html",
+    "build": "parcel build public/index.html",
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
   }
 }
