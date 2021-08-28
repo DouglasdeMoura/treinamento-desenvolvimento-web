@@ -1,0 +1,13 @@
+{
+  "name": "treinamento-desenvolvimento-web",
+  "version": "0.0.0",
+  "description": "Monorepo com os exemplos do curso.",
+  "main": "index.js",
+  "repository": "https://github.com/DouglasdeMoura/treinamento-desenvolvimento-web",
+  "author": "Douglas Moura",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
