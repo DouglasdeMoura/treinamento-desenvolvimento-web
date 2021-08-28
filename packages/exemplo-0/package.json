@@ -1,0 +1,10 @@
+{
+  "name": "exemplo-0",
+  "version": "0.0.0",
+  "description": "Para entender como o React trabalha",
+  "author": "Douglas Moura <douglas.ademoura@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
