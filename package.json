@@ -7,6 +7,9 @@
   "author": "Douglas Moura",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "postinstall": "lerna bootstrap"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   },
