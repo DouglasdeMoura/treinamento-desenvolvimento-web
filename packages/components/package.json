@@ -1,0 +1,32 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "description": "Componentes utilizados na aplicação",
+  "author": "Douglas Moura <douglas.ademoura@gmail.com>",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/main.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build": "parcel build src/index.ts",
+    "build:storybook": "build-storybook",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/react": "^6.3.7",
+    "@types/styled-components": "^5.1.13",
+    "babel-loader": "^8.2.2",
+    "parcel": "^2.0.0-rc.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "styled-components": "^5.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
