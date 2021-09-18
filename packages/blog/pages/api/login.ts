@@ -18,5 +18,5 @@ export default function handler(
     res.status(405).end();
 
   const { username, password } = req.body as LoginBody;
-  res.status(401).json({ message: "Usuário autenticado" })
+  res.status(401).json({ message: "Usuário autenticado" });
 }
