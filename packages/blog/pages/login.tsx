@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { Button, Input } from 'components';
 import { useState, useEffect, FormEvent } from 'react';
 import styled from 'styled-components';
+import { client } from '../axios/client';
 
 type Credentials = {
   username: string,
@@ -15,16 +16,9 @@ function useLogin(credentials: Credentials | undefined) {
 
   useEffect(() => {
     if (loading) {
-      fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify(credentials),
-      })
+      client.post('login', credentials)
         .then(res => {
-          if (res.ok) {
-            setResponse(res);
-          } else {
-            setError(res);
-          }
+          setResponse(res.data);
         })
         .catch(err => {
           setError(err);
@@ -33,7 +27,6 @@ function useLogin(credentials: Credentials | undefined) {
           setLoading(false);
         });
     }
-
   }, [loading, credentials]);
 
   useEffect(() => {
@@ -81,12 +74,12 @@ const Login: NextPage = () => {
     <Form onSubmit={handleOnSubmit}>
       <fieldset>
         <p>
-          <label>Usuário</label>
-          <Input name="username" />
+          <label htmlFor="username">Usuário</label>
+          <Input id="username" name="username" />
         </p>
         <p>
-          <label>Senha</label>
-          <Input type="password" name="password" />
+          <label htmlFor="password">Senha</label>
+          <Input id="password" type="password" name="password" />
         </p>
         <p>
           <Button disabled={loading} type="submit" primary={true}>Entrar</Button>
