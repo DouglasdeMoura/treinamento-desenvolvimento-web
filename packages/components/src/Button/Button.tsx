@@ -4,7 +4,7 @@ import styled from 'styled-components';
 type ButtonProps = {
   color?: string,
   background?: string,
-  primary: boolean,
+  primary?: boolean,
 } & JSX.IntrinsicElements['button'];
 
 const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(({
