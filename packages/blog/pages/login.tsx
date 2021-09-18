@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import { Button, Input } from 'components';
 import { useState, useEffect, FormEvent } from 'react';
+import styled from 'styled-components';
+import { client } from '../axios/client';
 
 type Credentials = {
   username: string,
@@ -14,16 +16,9 @@ function useLogin(credentials: Credentials | undefined) {
 
   useEffect(() => {
     if (loading) {
-      fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify(credentials),
-      })
+      client.post('login', credentials)
         .then(res => {
-          if (res.ok) {
-            setResponse(res);
-          } else {
-            setError(res);
-          }
+          setResponse(res.data);
         })
         .catch(err => {
           setError(err);
@@ -32,7 +27,6 @@ function useLogin(credentials: Credentials | undefined) {
           setLoading(false);
         });
     }
-
   }, [loading, credentials]);
 
   useEffect(() => {
@@ -43,6 +37,28 @@ function useLogin(credentials: Credentials | undefined) {
 
   return { loading, response, error };
 };
+
+const Form = styled.form`
+  max-width: 320px;
+  margin: 0 auto;
+
+  fieldset {
+    border-radius: 5px;
+    padding: 0 1em;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: small;
+    margin-bottom: 0.5em;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+`;
 
 const Login: NextPage = () => {
   const [credentials, setCredentials] = useState<Credentials>();
@@ -55,22 +71,22 @@ const Login: NextPage = () => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
+    <Form onSubmit={handleOnSubmit}>
       <fieldset>
         <p>
-          <label>Usuário</label>
-          <Input name="username" />
+          <label htmlFor="username">Usuário</label>
+          <Input id="username" name="username" />
         </p>
         <p>
-          <label>Senha</label>
-          <Input type="password" name="password" />
+          <label htmlFor="password">Senha</label>
+          <Input id="password" type="password" name="password" />
         </p>
         <p>
           <Button disabled={loading} type="submit" primary={true}>Entrar</Button>
         </p>
         {error && <p>Ocorreu um erro ao tentar logar na plataforma.</p>}
       </fieldset>
-    </form>
+    </Form>
   )
 }
 

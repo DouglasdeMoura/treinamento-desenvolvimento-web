@@ -284,5 +284,7 @@ const generateColorVariables = (colors) => {
 };
 
 export const Theme = styled.div`
+  box-sizing: border-box;
+
   ${generateColorVariables(tailwindColors)}
 `;
