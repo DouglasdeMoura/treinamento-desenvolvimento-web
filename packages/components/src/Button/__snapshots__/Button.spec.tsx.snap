@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> deve renderizar o botão 1`] = `
+<button
+  className="sc-bdfBQB kvnXKx"
+  data-primary={false}
+  type="button"
+>
+  Nome
+</button>
+`;
