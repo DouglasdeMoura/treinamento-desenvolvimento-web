@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const client = axios.create({
-  baseURL: 'http://google.com/api/'
+  baseURL: 'http://localhost:3000/api/'
 })
