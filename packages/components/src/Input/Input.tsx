@@ -6,7 +6,7 @@ type InputProps = {
   background?: string,
 } & JSX.IntrinsicElements['input'];
 
-const InputComponent = forwardRef<HTMLButtonElement, InputProps>(({
+const InputComponent = forwardRef<HTMLInputElement, InputProps>(({
   ...rest
 }, ref) => (
   <input {...rest} ref={ref} />
